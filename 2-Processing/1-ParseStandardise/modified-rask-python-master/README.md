@@ -1,6 +1,6 @@
 # modified-rask
 
-This is a modification I (Joseph Kuchar) made to the Python implementation of RASK written by Diego Ripley. RASK is a tool used internally at Statistics Canada to standardise addresses for easier record linking. This version does not use the full set of rules or standardizations used in the original version, as certain choices made for simplifying administrative data are unnecessary for processing address point data.
+This is a modification I (Joseph Kuchar) made to the Python implementation of RASK (Road Attribute Search Key) written by Diego Ripley. RASK is a tool used internally at Statistics Canada to standardise addresses for easier record linking. This version does not use the full set of rules or standardizations used in the original version, as certain choices made for simplifying administrative data are unnecessary for processing address point data.
 
 Most of the following text is as-in Diego's original write-up, with small modifications made where necessary.
 
