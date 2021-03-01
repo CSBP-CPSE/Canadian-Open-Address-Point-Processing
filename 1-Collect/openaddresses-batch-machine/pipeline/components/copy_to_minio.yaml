@@ -1,0 +1,35 @@
+name: Copy to Minio
+inputs:
+- {name: Minio URL, type: URL, description: 'Minio instance URL, starting with http://'}
+- {name: Minio access key, type: String}
+- {name: Minio secret key, type: String}
+- {name: Local source, description: 'Local source of upload'}
+- {name: Minio destination, type: String, description: 'Minio destination location in format <bucket>/<location_in_bucket>'}
+- {name: Flags, optional: true, default: '', type: String, description: 'Flags/options passed to mc'}
+outputs: 
+- {name: Minio destination, type: String}
+- {name: md5sum, type: String, description: 'A combined md5sum of all data passed to MinIO'}
+implementation:
+  container:
+    image: minio/mc
+    command:
+    - sh
+    - -ex
+    - -c
+    - |
+        FLAGS=$7
+        mkdir -p "$(dirname "$5")"
+        mkdir -p "$(dirname "$6")"
+        mc config host add my_minio $0 $1 $2
+        mc cp $FLAGS $3 my_minio/$4
+        echo "$4" > "$5"
+        # Use find in case we retrieved a directory - this gets all files in the dir
+        find $3 -type f -exec md5sum {} \; | sort -k 2 | md5sum | awk '{print $1}' > $6
+    - {inputValue: Minio URL}
+    - {inputValue: Minio access key}
+    - {inputValue: Minio secret key}
+    - {inputPath: Local source}
+    - {inputValue: Minio destination}
+    - {outputPath: Minio destination}
+    - {outputPath: md5sum}
+    - {inputValue: Flags}

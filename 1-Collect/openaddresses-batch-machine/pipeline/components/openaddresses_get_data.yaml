@@ -1,0 +1,26 @@
+name: Download Data from OpenAddresses
+inputs:
+- {name: source_json, type: JsonObject, description: 'OpenAddresses source specification in JSON format'}
+- {name: args, type: String, optional: true, default: '', description: 'Optional command line args to pass to openaddr-process-one, such as "--layer addresses --layersource city"'}
+outputs: 
+- {name: data, description: 'All data downloaded from OpenAddresses call'}
+implementation:
+  container:
+    image: k8scc01covidacr.azurecr.io/daaas-openaddresses-batch-machine:latest
+    command:
+    - sh
+    - -ex
+    - -c
+    - |
+        SOURCE_JSON=$0
+        ARGS=$1
+        OUTPUT_PATH=$2
+        mkdir -p $OUTPUT_PATH
+        
+        cat $SOURCE_JSON
+        
+        openaddr-process-one $SOURCE_JSON $OUTPUT_PATH $ARGS
+        
+    - {inputPath: source_json}
+    - {inputValue: args}
+    - {outputPath: data}
