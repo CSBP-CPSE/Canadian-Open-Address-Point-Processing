@@ -1,10 +1,8 @@
-# rask-cask-python
+# modified-rask
 
-A package that includes two standardizing tools:
-- Road Attribute Search Key (RASK), that standardizes road attributes (street name, street type, etc).
-- Community Attribute Search Key (CASK), that standardizes municipality names.
+This is a modification I (Joseph Kuchar) made to the Python implementation of RASK written by Diego Ripley. RASK is a tool used internally at Statistics Canada to standardise addresses for easier record linking. This version does not use the full set of rules or standardizations used in the original version, as certain choices made for simplifying administrative data are unnecessary for processing address point data.
 
-The rask-cask Python module is based from the rules defined in the [RASK/CASK specifications](https://gccode.ssc-spc.gc.ca/stats-srgd/rask-cask-python/wikis/RASK/RASK-CASK-Specifications).
+Most of the following text is as-in Diego's original write-up, with small modifications made where necessary.
 
 ## Installation
 ```bash
@@ -17,15 +15,15 @@ You may need to run the above commands with `sudo`
 ## Example 1: Simplest operation.
 ```python
 # Simple example.
-from rask_cask import RASK
+from modified_cask import RASK
 standardized_address = RASK(str_nme='saint laurent boulevard', pr_uid=35)
 standardized_address.run()
 print(standardized_address)
 ```
 
-## Example 2: Print all RASK/CASK rules that had an effect in changing the input string.
+## Example 2: Print all RASK rules that had an effect in changing the input string.
 ```python
-from rask_cask import RASK
+from modified_rask import RASK
 from pprint import pprint
 
 standardized_address = RASK(str_nme='BIG SPRINGS DR SE', pr_uid=35, 
@@ -39,7 +37,7 @@ pprint(standardized_address.trace)
 # Assuming Python 3 and a CSV file structured as follows (no header value required):
 # ngd_str_uid,str_nme,str_typ,str_dir,pr_uid
 import csv
-from rask_cask import RASK
+from modified_rask import RASK
 
 
 def standardize_street_address_file(input_filename, output_filename, status_every=10000):
