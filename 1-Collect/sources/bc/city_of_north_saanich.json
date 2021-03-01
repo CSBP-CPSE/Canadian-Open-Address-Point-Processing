@@ -1,0 +1,45 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "bc",
+        "city": "North Saanich",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -123.442251,
+                48.658584
+            ]
+        }
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "data": "https://services1.arcgis.com/CppIoMHWYIrPO1GU/ArcGIS/rest/services/Public_AddressCadastral/FeatureServer/0",
+                "protocol": "ESRI",
+                "conform": {
+                    "format": "geojson",
+                    "id": "ADDRESS_ID",
+                    "number": {
+                        "function": "format",
+                        "fields": ["STR_NUMBER_PREFIX","STR_NUMBER","STR_NUMBER_SUFFIX"],
+                        "format": "$1 $2$3"
+                    },
+                    "street": [
+                        "STREET_NAME",
+                        "STREET_TYPE",
+                        "STREET_DIR_SUFFIX"
+                    ],
+                    "city": "LOCALITY_NAME_ALIAS",
+                    
+                    "id": "OBJECTID",
+                    "str_name": "STREET_NAME",
+                    "str_type": "STREET_TYPE",
+                    "str_dir": "STREET_DIR_SUFFIX",
+                    "full_addr": "FULL_ADDRESS"
+                }
+            }
+        ]
+    }
+}

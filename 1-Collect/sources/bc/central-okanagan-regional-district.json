@@ -1,0 +1,33 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "bc",
+        "county": "Central Okanagan"
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "county",
+                "data": "https://www.rdcogis.com/arcgis/rest/services/DataDownload/RDCO_Data_Download/MapServer/10",
+                "protocol": "ESRI",
+                "conform": {
+                    "format": "geojson",
+                    "id": "OBJECTID",
+                    "number": "ADDR_NBR",
+                    "street": [
+                        "NAME",
+                        "TYPE",
+                        "DIRECTION"
+                    ],
+                    "unit": "UNIT_NBR",
+                    
+                    "id": "OBJECTID",
+                    "str_name": "NAME",
+                    "str_type": "TYPE",
+                    "str_dir": "DIRECTION"
+                }
+            }
+        ]
+    }
+}

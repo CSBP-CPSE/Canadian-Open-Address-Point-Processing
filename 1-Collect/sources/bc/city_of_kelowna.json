@@ -1,0 +1,45 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "bc",
+        "city": "Kelowna",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -119.595,
+                49.899
+            ]
+        }
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "data": "https://geo.kelowna.ca/arcgis/rest/services/OpenData/MapServer/7",
+                "website": "https://opendata.kelowna.ca/datasets/address-points",
+                "license": {
+                    "url": "http://apps.kelowna.ca/images/opendata/opengovernmentlicence.pdf",
+                    "text": "Contains information licensed under the Open Government Licence – City of Kelowna",
+                    "attribution name": "Open Government Licence City of Kelowna",
+                    "attribution": true,
+                    "share-alike": false
+                },
+                "protocol": "ESRI",
+                "conform": {
+                    "format": "geojson",
+                    "number": {
+                        "function": "format",
+                        "fields": ["STR_NO_PRE","STR_NO","STR_NO_SUF"],
+                        "format": "$1 $2$3"
+                    },
+                    "street": ["STR_NAME","STR_TYPE","STR_DR_SUF"],
+                    "str_name": "STR_NAME",
+                    "str_type": "STR_TYPE",
+                    "str_dir": "STR_DR_SUF",
+                    "full_addr": "FULL_ADD"
+                }
+            }
+        ]
+    }
+}

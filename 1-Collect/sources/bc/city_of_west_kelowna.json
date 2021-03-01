@@ -1,0 +1,40 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "bc",
+        "city": "West Kelowna",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -119.609,
+                49.86
+            ]
+        }
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "data": "http://gis.westkelownacity.ca/GISFiles/wk_cvcpoints.zip",
+                "website": "http://www.westkelownacity.ca/471/Open-Data",
+                "protocol": "http",
+                "compression": "zip",
+                "conform": {
+                    "format": "shapefile",
+                    "number": "ADDR_NBR",
+                    "street": [
+                        "PREFIX",
+                        "NAME",
+                        "TYPE"
+                    ],
+                    "unit": "UNIT_NBR",
+                    "str_name": "NAME",
+                    "str_type": "TYPE",
+                    "str_dir": "PREFIX",
+                    "postcode": "POST_CODE"
+                }
+            }
+        ]
+    }
+}

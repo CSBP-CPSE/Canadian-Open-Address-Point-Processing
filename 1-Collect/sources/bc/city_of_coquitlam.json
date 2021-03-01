@@ -1,0 +1,48 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "bc",
+        "city": "Coquitlam",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -122.771,
+                49.297
+            ]
+        }
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "data": "https://s3-us-west-2.amazonaws.com/coquitlam-spatial/Cadastral/SHP/Coquitlam_Cadastral_SHP.zip",
+                "website": "https://coquitlam.maps.arcgis.com/apps/Cascade/index.html?appid=26ed37ee4167495dbb92e2798aa2b968",
+                "license": {
+                    "url": "https://www.coquitlam.ca/city-services/city-maps.aspx#Spatial",
+                    "attribution": true
+                },
+                "protocol": "http",
+                "compression": "zip",
+                "conform": {
+                    "format": "shapefile",
+                    "file": "Addresses.shp",
+                    "number": "HOUSE",
+                    "street": [
+                        "STREET",
+                        "STREETTYPE"
+                    ],
+                    "unit": [
+                        "UNITTYPE",
+                        "UNIT"
+                    ],
+                    "postcode": "POSTAL",
+
+                    "str_name": "STREET",
+                    "str_type": "STREETTYPE",
+                    "full_addr": "ADDRESS"
+                }
+            }
+        ]
+    }
+}

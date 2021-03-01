@@ -1,0 +1,36 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "bc",
+        "city": "surrey"
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "data": "https://data.surrey.ca/datastore/dump/141da8d6-7625-42ab-a209-cee8bcebd475?bom=True",
+                "website": "https://data.surrey.ca/dataset/addresses/resource/141da8d6-7625-42ab-a209-cee8bcebd475",
+                "license": "https://data.surrey.ca/pages/open-government-licence-surrey",
+                "protocol": "http",
+                "conform": {
+                    "format": "csv",
+                    "number": "STREET_NUMBER",
+                    "street": [
+                        "STREET_DIR_PREFIX",
+                        "STREET_NAME",
+                        "STREET_TYPE",
+                        "STREET_DIR_SUFFIX"
+                    ],
+                    "city": "LOCALITY",
+                    "full_addr": "FULL_ADDRESS",
+                    "str_name": "STREET_NAME",
+                    "str_type": "STREET_TYPE",
+                    "str_dir": "STREET_DIR_SUFFIX",
+                    "lat": "Latitude",
+                    "lon": "Longitude"
+                }
+            }
+        ]
+    }
+}

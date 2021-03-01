@@ -1,0 +1,42 @@
+{
+    "schema": 2,
+    "coverage": {
+        "country": "ca",
+        "state": "ab",
+        "city": "Cochrane",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -114.508,
+                51.189
+            ]
+        }
+    },
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "data": "https://services5.arcgis.com/M1SNYuFIW9v2gSO7/arcgis/rest/services/Cochrane_Addresses/FeatureServer/0",
+                "website": "https://data-cochranegis.opendata.arcgis.com/datasets/cochrane-addresses",
+                "license": {
+                    "url": "https://www.cochrane.ca/947/Open-Data-Licence",
+                    "text": "Contains information licensed under the Open Data Licence – Town of Cochrane.",
+                    "attribution name": "Open Data Licence – Town of Cochrane",
+                    "attribution": true,
+                    "share-alike": false
+                },
+                "attribution": "Contains information licensed under the Open Data Licence – Town of Cochrane.",
+                "protocol": "ESRI",
+                "conform": {
+                    "format": "geojson",
+                    "id": "AID",
+                    "number": "Street_Num",
+                    "unit": "Unit_No",
+                    "street": "Street_Nam",
+                   
+                    "full_addr": "Street_Add" 
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "bc",
+        "city": "Vancouver",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -123.13,
+                49.28
+            ]
+        }
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "webpage": "https://opendata.vancouver.ca/explore/dataset/property-addresses/table/",
+                "data": "https://github.com/CSBP-CPSE/LODE-ECDO/raw/master/scripts/Addresses/vancouver-property-addresses.zip",
+                "compression": "zip",
+                "license":{
+                    "url": "https://opendata.vancouver.ca/pages/licence/",
+                    "attribution name": "Open Government Licence – Vancouver",
+                    "attribution": true,
+                    "text": "Contains information licensed under the Open Government Licence – Vancouver."
+                },
+                "protocol": "http",
+                "conform": {
+                    "number": "civic_number",
+                    "street": "std_street",
+                    "format": "shapefile",
+                    
+                    "id": "site_id"
+                }
+            }
+        ]
+    }
+}

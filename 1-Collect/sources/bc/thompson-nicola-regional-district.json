@@ -1,0 +1,30 @@
+{
+    "coverage": {
+        "country": "ca",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -119.3,
+                50.5
+            ]
+        }
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "country",
+                "data": "https://tnrdmap.tnrd.ca/ags/rest/services/DynamicMap/MapServer/84",
+                "website": "https://www.tnrd.ca/planning-development/maps-data/",
+                "protocol": "ESRI",
+                "conform": {
+                    "format": "geojson",
+                    "unit": "SuiteNo",
+                    "number": "StreetNo",
+                    "street": "StreetName",
+                    "city": "Community"
+                }
+            }
+        ]
+    }
+}

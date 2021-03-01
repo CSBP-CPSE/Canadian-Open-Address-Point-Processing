@@ -1,0 +1,36 @@
+{
+    "coverage": {
+        "ISO 3166": {
+            "alpha2": "CA-AB",
+            "country": "Canada",
+            "subdivision": "Alberta"
+        },
+        "country": "ca",
+        "state": "ab"
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "state",
+                "data": "https://minimal-tenant1-minio.covid.cloud.statcan.ca/shared/deil-lode/alberta_AMDSP.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=IO5B7IE2EH4W7HOKPQS8%2F20210118%2F%2Fs3%2Faws4_request&X-Amz-Date=20210118T184132Z&X-Amz-Expires=432000&X-Amz-Security-Token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NLZXkiOiJJTzVCN0lFMkVINFc3SE9LUFFTOCIsImFpbyI6IkFWUUFxLzhTQUFBQWtmeWFrQlkrSkxBMlZseEJNUElGM1MveW9LV1h3ZGVlSjNNc3ZCSDliVjJUa2hlcUpGT29PVHZabVhmc1VvYVhtMWM3WlFPZ1RZNkFPbHlra2Zaa2JlNm9pRVMrSFNyQmNVUDBxQ3h6andBPSIsImF1ZCI6ImFiNGZiMTA4LWYyYWYtNDZjZi1iYTRmLTRkOTYzZDlkYjVjMCIsImV4cCI6MTYxMDk5ODgwMiwiaWF0IjoxNjEwOTk0OTAyLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vMjU4ZjFmOTktZWUzZC00MmM3LWJmYzUtN2FmMWIyMzQzZTAyL3YyLjAiLCJuYW1lIjoiSm9zZXBoIEt1Y2hhciIsIm5iZiI6MTYxMDk5NDkwMiwibm9uY2UiOiJyVGdlTzZ3Tml0bUZDdUZ5Iiwib2lkIjoiODZkMGQwOTgtMzExYi00MjEwLWFjNGEtYzQzNDMwNTc1NGQ1IiwicG9saWN5IjoiIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiam9zZXBoLmt1Y2hhckBjbG91ZC5zdGF0Y2FuLmNhIiwicmgiOiIwLkFBQUFtUi1QSlQzdXgwS194WHJ4c2pRLUFnaXhUNnV2OHM5R3VrOU5sajJkdGNBWUFPWS4iLCJzdWIiOiIxUElZbEJtNVJPbFJ2QkEzWGxSNnZYbEdkcFU1SjJhRTMxR01TSk5oUVBvIiwidGlkIjoiMjU4ZjFmOTktZWUzZC00MmM3LWJmYzUtN2FmMWIyMzQzZTAyIiwidXRpIjoiellhMkU3RWNSa2F5Y3dkNW9hZHFBQSIsInZlciI6IjIuMCJ9.hdK-pOisLMbMQ3QnnNltPGKkQpaDUIz9Eb7xe7IuU506MPeDV_rvl2zekFlJjg8g-Bo8T3YyoGoZwKKM4Tz1DQ&X-Amz-SignedHeaders=host&X-Amz-Signature=888af854657e9673894bf25d331ded4df9cf50d13a99f426761dfcb359be83fe",                
+                "license": "http://216.171.235.254/AMDSP/disclaim.aspx",
+                "attribution": "Contains information licensed under the Open Government Licence – Alberta Municipal Data Sharing Partnership (AMDSP)",
+                "protocol": "http",
+                "compression": "zip",
+                "conform": {
+                    "format": "shapefile",
+                    "number": "house_id",
+                    "street": "road_name",
+                    "unit": "unit_num",
+                    "city": "civic_id",
+                    "str_dir": "dir_sufx",
+                    "str_type": "road_type",
+                    "str_name": "main_name"
+                    
+                    
+                }
+            }
+        ]
+    }
+}

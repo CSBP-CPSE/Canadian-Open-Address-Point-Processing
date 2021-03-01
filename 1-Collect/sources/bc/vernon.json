@@ -1,0 +1,74 @@
+{
+    "coverage": {
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -119.398,
+                50.235
+            ]
+        },
+        "country": "ca",
+        "state": "bc",
+        "city": "Vernon"
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "data": "https://github.com/CSBP-CPSE/LODE-ECDO/raw/master/scripts/Addresses/vernon.zip",
+                "website": "https://www.vernon.ca/government-services/maps-gis/open-data-deep",
+                "license": {
+                    "url": "https://www.vernon.ca/government-services/maps-gis/open-data-catalogue"
+                },
+                "note": {
+                    "caching": "data url needs periodic update since it's cached",
+                    "quality": "The vast majority of the data is fine, but there are some issues with several addresses and I was unable to make sense of them from other sources though someone from Vernon, BC may be able to help.  Below are examples where there appear to be 2 house numbers that prefix the street but the lat/lon's on other mapping sites supply no proof of this.  On Google street view, these appear to be gated housing complexes.  If the house number is really the first number, complicating regexes is that numeric street names lack the ordinal identifiers.",
+                    "problematic-addresses": {
+                        "source": [
+                            "7 9060 TRONSON RD",
+                            "22 9060 TRONSON RD",
+                            "34 6450 OKANAGAN LANDING RD",
+                            "102 1711 KALAMALKA LAKE RD"
+                        ],
+                        "parsed": [
+                            {
+                                "number": "7",
+                                "street": "9060 TRONSON RD"
+                            },
+                            {
+                                "number": "22",
+                                "street": "9060 TRONSON RD"
+                            },
+                            {
+                                "number": "34",
+                                "street": "6450 OKANAGAN LANDING RD"
+                            },
+                            {
+                                "number": "102",
+                                "street": "1711 KALAMALKA LAKE RD"
+                            }
+                        ]
+                    },
+                    "ordinal-less-addresses": [
+                        "2907 30 AVE",
+                        "3301 20 ST"
+                    ]
+                },
+                "protocol": "http",
+                "compression": "zip",
+                "conform": {
+                    "number": "STREET_NUM",
+                    "street": {
+                        "function": "regexp",
+                        "field": "FULL_ADDRE",
+                        "pattern": "^(?:\\S+ )(.*)",
+                        "replace": "$1"
+                    },
+                    "full_addr": "FULL_ADDRE",
+                    "format": "shapefile"
+                }
+            }
+        ]
+    }
+}

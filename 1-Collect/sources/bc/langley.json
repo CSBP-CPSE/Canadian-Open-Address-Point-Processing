@@ -1,0 +1,39 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "bc",
+        "city": "Langley",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -122.66,
+                49.11
+            ]
+        }
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "data": "https://services5.arcgis.com/frpHL0Fv8koQRVWY/arcgis/rest/services/Parcels/FeatureServer/0",
+                "website": "https://data-tol.opendata.arcgis.com/datasets/parcels",
+                "license": {
+                    "url": "https://www.tol.ca/connect/talk-to-us/freedom-of-information/open-data-license/",
+                    "text": "Contains information licensed under the Open Government License – Township of Langley.",
+                    "attribution name": "Open Government License – Township of Langley",
+                    "attribution": true,
+                    "share-alike": false
+                },
+                "protocol": "ESRI",
+                "conform": {
+                    "format": "geojson",
+                    "number": "HOUSE",
+                    "street": "STREET",
+                    "city": "CITY"
+                },
+                "attribution": "City of Langley"
+            }
+        ]
+    }
+}

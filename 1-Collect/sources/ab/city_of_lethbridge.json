@@ -1,0 +1,44 @@
+{
+    "schema": 2,
+    "coverage": {
+        "country": "ca",
+        "state": "ab",
+        "city": "Lethbridge",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -112.916,
+                49.688
+            ]
+        }
+    },
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "data": "https://gis.lethbridge.ca/lethwebgisarcgis/rest/services/OpenData/odl_parcels/MapServer/0",
+                "website": "https://opendata.lethbridge.ca/datasets/16e189882ac94a5091618ee0e0f74ce7_0",
+                "license": {
+                    "url": "https://www.lethbridge.ca/Pages/OpenDataLicense.aspx",
+                    "attribution name": "City of Lethbridge - Open Data License",
+                    "attribution": false
+                },
+                "protocol": "ESRI",
+                "conform": {
+                    "format": "geojson",
+                    "accuracy": 2,
+                    "number": {
+                        "function": "prefixed_number",
+                        "field": "Address"
+                    },
+                    "street": {
+                        "function": "postfixed_street",
+                        "field": "Address"
+                    },
+                    
+                    "full_addr": "Address"
+                }
+            }
+        ]
+    }
+}

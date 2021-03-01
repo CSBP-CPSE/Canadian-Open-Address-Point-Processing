@@ -1,0 +1,42 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "ab",
+        "city": "Airdrie",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -114.0717,
+                51.2855
+            ]
+        }
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "data": "https://services1.arcgis.com/bctnJobT0aahg98G/ArcGIS/rest/services/Airdrie_Address_Points/FeatureServer/0",
+                "website": "https://data-airdrie.opendata.arcgis.com/datasets/airdrie-address-points",
+                "license": {
+                    "url": "https://data-airdrie.opendata.arcgis.com/pages/our-open-licence",
+                    "attribution": true,
+                    "share-alike": false
+                },
+                "protocol": "ESRI",
+                "conform": {
+                    "format": "geojson",
+                    "id": "AddressID",
+                    "number": "CivicNum",
+                    "street": "FullStreet",
+                    "unit": "UnitNum",
+                    
+                    "str_name": "StreetName",
+                    "str_type": "StreetType",
+                    "str_dir": "Quadrant",
+                    "full_addr": "FullAddres"
+                }
+            }
+        ]
+    }
+}
