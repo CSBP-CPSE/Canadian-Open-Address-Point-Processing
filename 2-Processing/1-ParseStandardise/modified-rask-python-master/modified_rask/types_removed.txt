@@ -1,0 +1,122 @@
+ """(('bypass', ('by pass',)),
+             ('drpass', ('droit pass', 'droit passage')), ('dr', (
+                'drive way', 'drv way', 'dr way', 'ddr', 'dirve', 'driev',
+                'drive',
+                'driveway', 'drove', 'drv', 'pm', 'prom', 'promenade',
+                'srive')),
+             ('rd', ('ch', 'chem', 'chemin', 'raod', 'road')),
+             ('way', ('wy', 'voie')), ('hwy', ('high way',)),
+             ('abbey', ('abby',)), ('acres', ('ac', 'acer', 'acers', 'acre')),
+             ('alley', ('al', 'allee', 'ally')),
+             ('av', ('ave', 'avenue', 'aveneue')),
+             ('bay', ('ba', 'baie', 'pass', 'passage', 'ps', 'psg')),
+             ('beach', ('bch',)), ('bend', ('bn', 'bnd')),
+             ('block', ('blk', 'bloc')), ('bluff', ('bf', 'bluf')), ('blvd', (
+                'bd', 'bl', 'bld', 'blv', 'boul', 'boule', 'boulev',
+                'boulevard',
+                'boulv', 'bv', 'bvd')), ('bourg', ('bourge',)),
+             ('brge', ('barrage',)), ('brook', ('brk', 'brooke')),
+             ('bypass', ('bp', 'byps', 'byp')), ('byway', ('bwy', 'by way')),
+             ('campus', ('campu',)), ('car', ('carre',)),
+             ('carref', ('carrefour', 'carefour')),
+             ('causwy', ('causeway', 'cw')),
+             ('cds', ('cd', 'cul de sac', 'cul sac', 'culsac')), ('cir', (
+                'ce', 'cer', 'cerc', 'cercl', 'cercle', 'ci', 'circ', 'circl',
+                'circle', 'cirl', 'cirle', 'cirs', 'crcl', 'crcle', 'cri',
+                'cricl')), ('circt', ('circuit', 'crct')),
+             ('close', ('cl', 'clove', 'cls', 'cs')), (
+                 'common',
+                 ('cm', 'cmmn', 'cmn', 'com', 'comm', 'commn', 'commo')),
+             ('conc', ('cn', 'con', 'concesion', 'concess', 'concession',
+                       'concessions')), ('cove', ('cv',)), ('cres', (
+                'cr', 'cre', 'crees', 'crel', 'cresc', 'crescent', 'crest',
+                'croi',
+                'crois', 'croissant', 'cresant', 'crescant', 'cresent',
+                'crese',
+                'cresl', 'crs', 'crscnt', 'gres')),
+             ('crnrs', ('corner', 'corners', 'crnr')),
+             ('cross', ('crossing', 'crss', 'cx')), ('crssrd', (
+                'crosroad', 'cross rd', 'cross road', 'crossrd', 'crossroad',
+                'x rd', 'xrd')), ('crt', ('court', 'crts', 'ct')),
+             ('ctr', ('c', 'center', 'centre')), ('desste', ('desserte',)),
+             ('divers', ('diver', 'diversion')),
+             ('downs', ('down', 'ds', 'dwn', 'dwns')), ('ech', ('echangeur',)),
+             ('espl', ('esplanade',)),
+             ('estate', ('estat', 'estates', 'ests')),
+             ('evergn', ('ev', 'evergreen')), ('exit', ('ex',)), ('expy', (
+                'expr way', 'express', 'expr', 'express way', 'expressway',
+                'expresway', 'expw', 'xy')),
+             ('exten', ('ext', 'extention', 'extension', 'extn')),
+             ('front', ('frnt',)), ('fwy', ('free way', 'freeway', 'frwy')),
+             ('gate', ('gt',)), ('gdns', (
+                'garde', 'garden', 'gardens', 'gdn', 'gn', 'grdn', 'grdns',
+                'gs')),
+             ('glen', ('gln',)), ('green', ('gr', 'grn')),
+             ('grnds', ('gnd', 'gnds', 'grnd', 'ground', 'grounds')),
+             ('grove', ('bois', 'gv')), ('harbr', (
+                'har', 'harbor', 'harbour', 'harbur', 'hb', 'hbr', 'hrbr')), (
+                 'hghlds', (
+                     'hghld', 'high land', 'high lands', 'highland',
+                     'highlands',
+                     'highlnd', 'highlnds')), ('hill', ('hills', 'hl')),
+             ('hollow', ('holow', 'hw')), ('hts', (
+                'heigh', 'height', 'heights', 'hght', 'hghts', 'hgt', 'hgts',
+                'high', 'higt', 'higts', 'ht', 'htg', 'htgs', 'plat',
+                'plateau',
+                'plateaux', 'plt', 'pu')), ('hwy', (
+                'aut', 'auto route', 'autoroute', 'hgwy', 'highwa', 'highway',
+                'hi way', 'hiway', 'hy', 'hyw', 'provincial trunk', 'route',
+                'rt',
+                'rte')), ('island', (
+                'ile', 'iles', 'isl', 'islands', 'isld', 'islds', 'isle',
+                'isles',
+                'i')), ('imp', ('impasse',)), ('knoll', ('knl',)), ('landng', (
+                'landg', 'landi', 'landing', 'ld', 'ldg', 'ldn', 'ldng', 'lg',
+                'lndg', 'lndng')),
+             ('lane', ('lanet', 'llane', 'ln', 'rl', 'rle', 'ruelle')),
+             ('lanewy', ('lane way', 'laneway')), ('lawn', ('lw',)),
+             ('line', ('li',)), ('link', ('lk', 'lnk')),
+             ('lkout', ('look out', 'lookout')),
+             ('lmts', ('limit', 'limits', 'lmt')), ('loop', ('lp',)),
+             ('manor', ('man', 'mnr', 'mor', 'mr')),
+             ('meadow', ('mdw', 'mdws')), ('mews', ('me', 'mew')),
+             ('montee', ('mo', 'mte', 'mtee')), ('mtn', (
+                'mont', 'montagne', 'montain', 'montaine', 'mount', 'mountain',
+                'mt')), ('orch', ('orchard',)), ('path', ('pth',)),
+             ('pines', ('pine',)), ('pkwy', (
+                'prk way', 'park way', 'parkw', 'parkway', 'paw', 'pkw',
+                'pkway',
+                'pky', 'prkw', 'prkwa', 'prkway', 'prkwy', 'prky', 'py')),
+             ('pk', ('pa', 'parc', 'park', 'prk')), ('pl', ('place', 'plc')),
+             ('plaza', ('plz', 'plza', 'pz')), ('pond', ('pd',)),
+             ('pt', ('pnt', 'poin', 'point', 'pointe')),
+             ('ptway', ('path way', 'pathway', 'pathwy', 'pthway', 'pthwy')),
+             ('pvt', ('priv', 'private', 'prive', 'prt', 'prvt', 'prvte')),
+             ('quay', ('quai',)), (special_replacement_1, ('rng',)), ('rdpt', (
+                'rd pt', 'rond point', 'rond pt', 'rondpoint', 'rondpt')),
+             ('rg', ('range', 'rge', 'rnge')), ('ridge', (
+                'cote', 'rde', 'rdg', 'rdge', 'rdq', 'ri', 'ridg', 'rigde')),
+             ('rise', ('rs',)), ('roadwy', ('ry', 'rdwy', 'rd way')),
+             ('row', ('rw',)), ('rtofwy', ('right of way', 'right way')),
+             ('ruis', ('rui', 'ruisseau')),
+             ('sectn', ('sec', 'sect', 'section')), ('sent', ('sentier',)),
+             ('side', ('sd',)), ('siderd', (
+                'sd rd', 'sd ro', 'sd road', 'side rd', 'side road', 'side ro',
+                'sdrd', 'sdro', 'sdroad', 'sidero', 'sideroad', 'sr')),
+             ('sq', ('sqr', 'sqre', 'squar', 'square', 'squre')),
+             ('st', ('ru', 'rue', 'ruer', 'str', 'stree', 'street')),
+             ('strip', ('sp',)), ('stroll', ('stl',)),
+             ('subdiv', ('sub div', 'subd', 'subdivision')), ('terr', (
+                'tc', 'tce', 'te', 'ter', 'terra', 'terrace', 'terrasse',
+                'terrc',
+                'terre', 'tsse')), ('thick', ('thicket',)), ('thruwy', (
+                'through way', 'throughway', 'thru way', 'thruway', 'tw')),
+             ('tline', ('townl', 'town line', 'townline')), ('took', ('tk',)),
+             ('towers', ('tower', 'twr', 'twrs')),
+             ('trail', ('tail', 'taril', 'tl', 'tr', 'tri', 'trial', 'trl')),
+             ('trnabt', ('turn about', 'turnabout')), ('turn', ('tu',)),
+             ('turnpk', ('turnpike', ' turn pike')), ('villas', ('villa',)),
+             ('view', ('vw',)), ('villge', ('village',)),
+             ('walk', ('cour', 'cours', 'wk')), ('wharf', ('wf',)),
+             ('wood', ('wd', 'woods')), ('wynd', ('winde',)))"""
+            
