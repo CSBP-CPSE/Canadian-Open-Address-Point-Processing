@@ -1,0 +1,41 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "on",
+        "city": "windsor",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -83.03,
+                42.3
+            ]
+        }
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "data": "https://opendata.citywindsor.ca/Uploads/Land%20Parcels_LL84.zip",
+                "website": "https://opendata.citywindsor.ca/opendata/details/204",
+                "license": "http://www.citywindsor.ca/opendata/Documents/OpenDataTermsofUse.pdf",
+                "protocol": "http",
+                "compression": "zip",
+                "conform": {
+                    "number": "ADD_NUMBER",
+                    "street": [
+                        "STREET",
+                        "SUFFIX",
+                        "DIRECTION"
+                    ],
+                    "format": "shapefile-polygon",
+
+                    "str_name": "STREET",
+                    "str_type": "SUFFIX",
+                    "str_dir": "DIRECTION",
+                    "full_addr": "ADD_RANGE"
+                }
+            }
+        ]
+    }
+}

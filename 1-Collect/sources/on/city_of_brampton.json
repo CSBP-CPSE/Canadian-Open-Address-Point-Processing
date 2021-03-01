@@ -1,0 +1,47 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "on",
+        "city": "Brampton",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -79.899,
+                43.725
+            ]
+        }
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "data": "https://maps1.brampton.ca/arcgis/rest/services/COB/OpenData_Address_Points/MapServer/14",
+                "protocol": "ESRI",
+                "website": "https://geohub.brampton.ca/datasets/address-points",
+                "license": {
+                    "url": "https://creativecommons.org/licenses/by/4.0/",
+                    "text": "CC-BY 4.0",
+                    "attribution name": "City of Brampton"
+                },
+                "conform": {
+                    "format": "geojson",
+                    "number": "CIVIC_NUMBER",
+                    "unit": "UNIT_NO",
+                    "street": [
+                        "STREET_NAME",
+                        "STREET_TYPE",
+                        "STREET_DIRECTION"
+                    ],
+                    "city": "CITY",
+                    
+                    "str_name": "STREET_NAME",
+                    "str_type": "STREET_TYPE",
+                    "str_dir": "STREET_DIRECTION",
+                    "full_addr": "FULL_ADDRESS"
+                    
+                }
+            }
+        ]
+    }
+}

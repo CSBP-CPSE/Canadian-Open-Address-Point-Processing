@@ -1,0 +1,35 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "on",
+        "county": "Waterloo",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -80.582,
+                43.482
+            ]
+        }
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "county",
+                "website": "https://rowopendata-rmw.opendata.arcgis.com/datasets/addresses",
+                "license": "https://www.regionofwaterloo.ca/en/regional-government/open-data.aspx#",
+                "data": "https://gis.region.waterloo.on.ca/arcgis/rest/services/Public/OpenData/FeatureServer/1",
+                "protocol": "ESRI",
+                "conform": {
+                    "format": "geojson",
+                    "number": "AddressNumber",
+                    "street": "FullStreetName",
+                    "city": "Municipality",
+                    "unit": "UnitNumber",
+                    "id": "OBJECTID",
+                    "full_addr": "FullAddress"
+                }
+            }
+        ]
+    }
+}

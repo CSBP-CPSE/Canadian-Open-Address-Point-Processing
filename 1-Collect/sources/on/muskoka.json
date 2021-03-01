@@ -1,0 +1,36 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "on",
+        "city": "muskoka region"
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "data": "https://opendata.arcgis.com/datasets/7dbdeb9bc94b45d4a3296f73fba38a3c_0.zip",
+                "website": "https://map.muskoka.on.ca/datasets/7dbdeb9bc94b45d4a3296f73fba38a3c_0",
+                "attribution": "Muskoka Region",
+                "license": {
+                    "url": "https://map.muskoka.on.ca/pages/terms-of-use",
+                    "text": "Contains information provided by the District Municipality of Muskoka under licence",
+                    "attribution name": "District Municipality of Muskoka – Open Data Licence v.1.0",
+                    "attribution": true,
+                    "share-alike": false
+                },
+                "protocol": "http",
+                "compression": "zip",
+                "conform": {
+                    "number": "StreetNumb",
+                    "street": "StreetName",
+                    "unit": "StreetUnit",
+                    "format": "shapefile",
+
+                    "full_addr": "Location",
+                    "city": "Municipali"
+                }
+            }
+        ]
+    }
+}

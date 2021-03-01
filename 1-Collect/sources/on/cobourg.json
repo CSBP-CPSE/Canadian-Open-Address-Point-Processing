@@ -1,0 +1,26 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "on",
+        "county": "Cobourg"
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "county",
+                "data": "https://maps.cobourg.ca/arcgis/rest/services/PublicBase/MapServer/1",
+                "website": "http://gis.cobourg.ca/",
+                "protocol": "ESRI",
+                "conform": {
+                    "number": "STREET_NO",
+                    "street": "STREET_NAM",
+                    "format": "geojson",
+                    
+                    "id": "OBJECTID",
+                    "full_addr": "COMPLETE_A"
+                }
+            }
+        ]
+    }
+}

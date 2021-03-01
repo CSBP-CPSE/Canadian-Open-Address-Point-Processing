@@ -1,0 +1,27 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "on",
+        "county": "Renfrew"
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "county",
+                "protocol": "http",
+                "data": "https://data.openaddresses.io/cache/uploads/trescube/cc2c02/ca-on-renfrew.geojson.zip",
+                "compression": "zip",
+                "conform": {
+                    "format": "geojson",
+                    "number": "Street_Num",
+                    "street": "Street_Name",
+                    "unit": "Qualifier",
+                    
+                    "id": "OBJECTID"
+                },
+                "note": "Token Required - http://countyofrenfrew.geocortex.com/SilverlightViewer/Viewer.html?Viewer=CountyOfRenfrewPublic"
+            }
+        ]
+    }
+}

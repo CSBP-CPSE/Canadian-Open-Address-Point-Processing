@@ -1,0 +1,46 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "on",
+        "city": "Barrie",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -79.735,
+                44.359
+            ]
+        }
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "data": "http://gisservices.barrie.ca/arcgis/rest/services/Open_Data/AddressVW/MapServer/0",
+                "website": "https://opendata.barrie.ca/datasets/address-points",
+                "license": {
+                    "url": "https://www.barrie.ca/Online%20Services/PublishingImages/OpenData_Images/COB_DataLicense.pdf",
+                    "attribution name": "Barrie",
+                    "text": "Contains information licensed under the Open Government Licence – Barrie."
+                },
+                "protocol": "ESRI",
+                "conform": {
+                    "format": "geojson",
+                    "number": "ADDRNUMBER",
+                    "street": [
+                        "SSTRNAME",
+                        "SSTRSUFF",
+                        "SSTRDIR"
+                    ],
+                    "unit": "UNITNUMBER",
+                    
+                    
+                    "str_name": "SSTRNAME",
+                    "str_type": "SSTRSUFF",
+                    "str_dir": "SSTRDIR",
+                    "full_addr": "FULLADDR"
+                }
+            }
+        ]
+    }
+}

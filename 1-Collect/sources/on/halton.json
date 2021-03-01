@@ -1,0 +1,36 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "on",
+        "county": "Halton"
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "county",
+                "protocol": "http",
+                "data": "https://data.openaddresses.io/cache/ca-on-halton.zip",
+                "note": "Obtained through MFIPPA Request by @ingalls <nicholas.ingalls@gmail.com>",
+                "compression": "zip",
+                "conform": {
+                    "format": "shapefile",
+                    "number": [
+                        "CIVICNUMPR",
+                        "CIVICNUM",
+                        "CIVICNUMSU"
+                    ],
+                    "street": "FULLSTREET",
+                    "unit": "UNIT",
+                    "city": "MUNINAME",
+                    "region": "PROVINCE",
+                    
+                    "str_name": "STREETNAME",
+                    "str_type": "STREETTYPE",
+                    "str_dir": "SUFFIXDIR",
+                    "full_addr": "FULLCIVICA"
+                }
+            }
+        ]
+    }
+}

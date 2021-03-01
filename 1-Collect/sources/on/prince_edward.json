@@ -1,0 +1,32 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "on",
+        "county": "Prince Edward"
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "county",
+                "protocol": "ESRI",
+                "data": "https://maps.thecounty.ca/pecountyext/rest/services/PEC_PublicViewerDynamic/MapServer/2",
+                "website": "http://www.pecounty.on.ca/county_overview/location_maps.php",
+                "conform": {
+                    "format": "geojson",
+                    "id": "SITEADDID",
+                    "number": "ADDRNUM",
+                    "street": "FULLNAME",
+                    "full_addr": "FULLADDR",
+
+                    "unit": [
+                        "UNITTYPE",
+                        "UNITID"
+                    ],
+                    "district": "MUNICIPALITY"
+
+                }
+            }
+        ]
+    }
+}

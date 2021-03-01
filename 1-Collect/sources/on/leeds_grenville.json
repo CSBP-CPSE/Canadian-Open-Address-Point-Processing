@@ -1,0 +1,24 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "on",
+        "county": "Leeds And Grenville"
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "county",
+                "protocol": "ESRI",
+                "data": "https://services3.arcgis.com/KQcdsE7S72bcD7R8/ArcGIS/rest/services/CivicAddress/FeatureServer/0",
+                "conform": {
+                    "format": "geojson",
+                    "unit": "UNITNUM",
+                    "number": "CIVICNUM",
+                    "street": "STREET",
+                    "city": "GEOTOWNSHP"
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "sk",
+        "city": "Regina",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -104.65,
+                50.48
+            ]
+        }
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "data": "https://opengis.regina.ca/arcgis/rest/services/OpenData/Address/MapServer/0",
+                "website": "http://open.regina.ca/dataset/address",
+                "license": {
+                    "url": "https://www.regina.ca/city-government/open-data/open-government-licence/index.html",
+                    "text": "Contains information licensed under the Open Government Licence - CITY OF REGINA",
+                    "attribution name": "Open Government License - City of Regina",
+                    "attribution": true,
+                    "share-alike": false
+                },
+                "protocol": "ESRI",
+                "conform": {
+                    "format": "geojson",
+                    "number": "BUILDING",
+                    "street": [
+                        "DIRECTION",
+                        "STREET"
+                    ],
+                    "unit": [
+                        "UNIT",
+                        "SUITE_NAME"
+                    ],
+                    
+                    "str_dir": "DIRECTION",
+                    "full_addr": "FULLADDRESS"
+                }
+            }
+        ]
+    }
+}

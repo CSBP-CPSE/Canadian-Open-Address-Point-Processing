@@ -1,0 +1,42 @@
+{
+    "schema": 2,
+    "coverage": {
+        "country": "ca",
+        "state": "on",
+        "city": "Oakville",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [ -79.788, 43.449 ]
+        }
+    },
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "data": "https://maps.oakville.ca/oakgis/rest/services/ArcGISOnline/AGO_Oakville_Misc_Layers/MapServer/15",
+                "website": "https://portal-exploreoakville.opendata.arcgis.com/datasets/address-points-1",
+                "license": {
+                    "url": "https://www.oakville.ca/data/open_data_licence.html",
+                    "text": "Contains information licensed under the Open Government Licence — Town of Oakville",
+                    "attribution name": "Town of Oakville Open Data Licence",
+                    "attribution": true,
+                    "share-alike": false
+                },
+                "protocol": "ESRI",
+                "conform": {
+                    "format": "geojson",
+                    "unit": "UNIT",
+                    "number": "STREET_NUM",
+                    "street": "SNAME",
+                    "city": "CITY",
+                    "region": "PROV",
+
+                    "str_name": "STREET_NAME",
+                    "str_type": "STREET_TYPE",
+                    "str_dir": "STREET_DIR",
+                    "full_addr": "ADDRESS"
+                }
+            }
+        ]
+    }
+}

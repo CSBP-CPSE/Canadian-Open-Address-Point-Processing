@@ -1,0 +1,23 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "on",
+        "county": "Haliburton"
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "county",
+                "protocol": "ESRI",
+                "data": "http://gis.haliburtoncounty.ca/arcgis/rest/services/Public/SearchLayers/MapServer/0",
+                "website": "https://haliburtoncounty.ca/services/planning-and-gis/gis/",
+                "conform": {
+                    "format": "geojson",
+                    "number": "ADDNUM",
+                    "street": "STREET"
+                }
+            }
+        ]
+    }
+}

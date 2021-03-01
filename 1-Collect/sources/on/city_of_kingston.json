@@ -1,0 +1,38 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "on",
+        "city": "Kingston",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -76.48,
+                44.23
+            ]
+        }
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "protocol": "http",
+                "data": "https://github.com/CSBP-CPSE/LODE-ECDO/raw/master/scripts/Addresses/kingston-civic-addresses.zip",
+                "website": "https://www.cityofkingston.ca/explore/data-catalogue",
+                "compression": "zip",
+                "conform": {
+                    "format": "shapefile",
+                    "number": "address_nu",
+                    "street": "street",
+                    "unit": "unit",
+                    "postcode": "postal_cod",
+                    "city": "municipali",
+
+                    "str_name": "street_bod",
+                    "str_type": "street_typ",
+                    "str_dir": "direction_"
+                }
+            }
+        ]
+    }
+}

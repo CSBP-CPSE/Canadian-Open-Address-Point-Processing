@@ -1,0 +1,23 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "on",
+        "county": "northumberland"
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "county",
+                "data": "http://maps.northumberlandcounty.ca/arcgis/rest/services/Internal_Parcel_Update_July2017/MapServer/0",
+                "website": "http://northumberlandcounty.ca/en/location_maps/",
+                "protocol": "ESRI",
+                "conform": {
+                    "number": "StreetNum",
+                    "street": "StreetName",
+                    "format": "geojson"
+                }
+            }
+        ]
+    }
+}

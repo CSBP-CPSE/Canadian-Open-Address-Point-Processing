@@ -1,0 +1,33 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "on",
+        "county": "Newmarket"
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "county",
+                "website": "http://open.newmarket.ca/opendata/navigo/show?id=25c43575c8d4b647&disp=D156E60C6F85&shard=open.newmarket.ca%2Fopendata%2Fsolr%2Fv0",
+                "data": "https://github.com/CSBP-CPSE/LODE-ECDO/raw/master/scripts/Addresses/newmarket.zip",
+                "license": {
+                    "url": "https://www.newmarket.ca/TownGovernment/Documents/Newmarket_OpenData_Licence.pdf",
+                    "text": "Contains information licensed under the Open Data Licence – Town of Newmarket",
+                    "attribution": true,
+                    "share-alike": false
+                },
+                "protocol": "http",
+                "compression": "zip",
+                "conform": {
+                    "format": "shapefile",
+                    "unit": "STREET_UNI",
+                    "number": "STREET_NO",
+                    "street": "STREET_NAM",
+                    "full_addr": "MUN_ADD",
+                    "id": "GLOBALID"
+                }
+            }
+        ]
+    }
+}

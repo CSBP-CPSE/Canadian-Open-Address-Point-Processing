@@ -1,0 +1,24 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "on",
+        "county": "Grey & Dufferin"
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "county",
+                "protocol": "ESRI",
+                "data": "http://maps.simcoe.ca/arcgis/rest/services/Public/NVCA_TOC_Dynamic/MapServer/9",
+                "conform": {
+                    "format": "geojson",
+                    "number": "STREET_NUM",
+                    "street": "FULL_STREE",
+                    "city": "MUNICIPALI",
+                    "str_name": "STREET_NAM"
+                }
+            }
+        ]
+    }
+}
