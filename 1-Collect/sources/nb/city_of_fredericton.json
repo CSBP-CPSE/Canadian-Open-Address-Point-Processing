@@ -1,0 +1,42 @@
+{
+    "coverage": {
+        "country": "ca",
+        "state": "nb",
+        "city": "Fredericton",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -66.643,
+                45.955
+            ]
+        }
+    },
+    "schema": 2,
+    "layers": {
+        "addresses": [
+            {
+                "name": "city",
+                "data": "https://services2.arcgis.com/iLWAxhpxafhOza2U/arcgis/rest/services/Geocoded_Civics/FeatureServer/0",
+                "website": "https://data-fredericton.opendata.arcgis.com/datasets/geocoded-civics",
+                "note": "prefixed_number is used for number since the Nbr and Frac_Nbr fields cannot be combined correctly with a single format function (123A vs 123 1/2)",
+                "protocol": "ESRI",
+                "conform": {
+                    "format": "geojson",
+                    "number": "Nbr",
+                    "street": [
+                        "Street_Nam",
+                        "St_Type"
+                    ],
+                    "unit": "Unit",
+                    "city": "CITY_VILLE",
+                    "postcode": "Postal_Code",
+                    
+                    "id": "CARISKEY",
+                    "str_name": "Street_Nam",
+                    "str_type": "English_Ty",
+                    "full_addr": "Address"
+                }
+            }
+        ]
+    }
+}
