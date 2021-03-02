@@ -16,7 +16,7 @@ The COAPP scripts are run on Statistics Canada's Advanced Analytics Workspace (A
 
 The basic workflow is
 
-1. Collect data and perform basic processing with a modified version of the OpenAddresses () processing pipeline, integrated into a Kubeflow pipeline.
+1. Collect data and perform basic processing with a modified version of the OpenAddresses (https://github.com/openaddresses/) processing pipeline, integrated into a Kubeflow pipeline.
 2. Pass the individual CSVs produced in step 1 to a series of four Python scripts that perform:
    *  Processing of street names, types, and directions into standard forms in new columns, and infer city names where missing in the original data,
    *  Remove records with missing coordinates or street names, and truncate geocoordinates to five decimal points and deduplicate address points,
@@ -24,3 +24,4 @@ The basic workflow is
    *  Merge all sources into one file, perform a second deduplication step, and assign unique identifiers and group identifiers.
 
 The final output is a single Canada-wide address file, as well as separate files produced for each province and territory where data is available.
+More detailed documentation for each of the steps is in development and this repository will be updated as it is available.
