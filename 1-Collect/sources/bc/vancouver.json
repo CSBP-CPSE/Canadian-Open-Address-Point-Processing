@@ -27,7 +27,7 @@
                 },
                 "protocol": "http",
                 "conform": {
-                    "number": "civic_number",
+                    "number": "civic_numb",
                     "street": "std_street",
                     "format": "shapefile",
                     
