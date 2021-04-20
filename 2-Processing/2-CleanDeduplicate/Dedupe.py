@@ -18,25 +18,33 @@ import sys
 s = sys.argv[1]
 
 
-df = pd.read_csv("/home/jovyan/data-vol-1/ODA/processing/temporary_files/{}_in.csv".format(s))
+df = pd.read_csv("/home/jovyan/data-vol-1/ODA/processing/temporary_files/{}_in.csv".format(s), low_memory=False, dtype='str')
 N=len(df)
 
+"""
+replace truncation with rounding and keep everything as a string, don't need this function
 def truncate(x,n=5):
     #truncate coordinates to 5 decimal places
     return trunc(x*10**n)/10**n
-
+"""
 
 
 df_null=df.copy()
-df_null=(df_null.loc[(df['LAT'].isnull())|(df['STREET'].isnull())|(df['STR_NAME_PCS']=="NULL")])
+df_null=(df_null.loc[(df['LAT'].isnull())|(df['STREET'].isnull())|(df['STR_NAME_PCS']=="NULL")|(df['STREET']=="<Null>")])
 N_null=len(df_null)
 df_null.to_csv("/home/jovyan/data-vol-1/ODA/processing/temporary_files/{}_null.csv".format(s),index=False)
 df=df.drop(df.loc[df['STR_NAME_PCS']=="NULL"].index)
+df=df.drop(df.loc[df['STREET']=="<Null>"].index)
+
 df=df.dropna(subset=['LAT','LON','STREET'])
 
 
-df['LON']=df['LON'].apply(truncate)
-df['LAT']=df['LAT'].apply(truncate)
+#df['LON']=df['LON'].astype(float).apply(truncate)
+#df['LAT']=df['LAT'].astype(float).apply(truncate)
+
+cols=['LAT','LON']
+df[cols] = df[cols].astype(float).applymap(lambda x: '{:.5f}'.format(x))
+
 
 #simple deduplication
 if 'STR_NAME_PCS' in list(df):

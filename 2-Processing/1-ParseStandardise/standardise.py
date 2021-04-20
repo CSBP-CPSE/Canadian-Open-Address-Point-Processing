@@ -9,24 +9,27 @@ name_out: path for output csv
 """
 import pandas as pd
 from modified_rask import RASK
+
 import json
 import os.path
 from os import path
 import argparse
 
 
-def full_addr(df,cols):
-    if 'full_addr' not in cols:
-        return df
-    else:
-        if 'unit' in cols:
-            df['FULL_ADDR']=df['UNIT']+' '+df['NUMBER']+' '+df['STREET']
 
-        else:
-            df['FULL_ADDR']=df['NUMBER']+' '+df['STREET']
-            
-        df['FULL_ADDR']=df['FULL_ADDR'].str.replace(' +',' ',regex=True)
-        df['FULL_ADDR']=df['FULL_ADDR'].str.strip()
+def full_addr(df,cols):
+    #fill empty entries in full address with a concatenation of unit, number, and street.
+#    if 'full_addr' not in cols:
+#        return df
+#    else:
+#        if 'unit' in cols:
+#            df['FULL_ADDR']=df['UNIT']+' '+df['NUMBER']+' '+df['STREET']
+    df['TEMP']=df['UNIT']+' '+df['NUMBER']+' '+df['STREET']
+    df['TEMP']=df['TEMP'].str.replace(' +',' ',regex=True)
+    df['TEMP']=df['TEMP'].str.strip()
+    df['FULL_ADDR']=df['FULL_ADDR'].fillna(df['TEMP'])
+    df['FULL_ADDR'] = df[['FULL_ADDR', 'TEMP']].apply(lambda x: x[0] if x[0] else x[1], axis=1)
+    df=df.drop(columns=['TEMP'])
     return df
     
 def city_name(df,cols):
@@ -125,7 +128,7 @@ if __name__ == "__main__":
     json_in = args.json_in
     name_out = args.name_out
     #read in csv
-    df_in = pd.read_csv("/home/jovyan/data-vol-1/ODA/processing/temporary_files/"+name_in, dtype='str')
+    df_in = pd.read_csv("/home/jovyan/data-vol-1/ODA/processing/temporary_files/"+name_in, dtype='str', low_memory=False)
     s=name_in.replace(".csv","")
 
     cols_master=['str_name','str_type','str_dir','full_addr', 'unit','city']

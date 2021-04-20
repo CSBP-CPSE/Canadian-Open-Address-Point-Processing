@@ -13,16 +13,16 @@ name_in = sys.argv[1]
 name_out = sys.argv[2]
 print(name_in)
 prefix="/home/jovyan/data-vol-1/ODA/processing/temporary_files/"
-df = pd.read_csv("{}{}".format(prefix,name_in))
+df = pd.read_csv("{}{}".format(prefix,name_in), low_memory=False, dtype='str')
 
 N1=len(df)
 gdf = gpd.GeoDataFrame(
-    df, geometry=gpd.points_from_xy(df.LON, df.LAT))
+    df, geometry=gpd.points_from_xy(df.LON.astype(float), df.LAT.astype(float)))
 gdf.crs="EPSG:4326"
 
 #read in Statcan boundary file
 
-CSD = gpd.read_file("/home/jovyan/data-vol-1/ODA/processing/3-Spatial_Group/CSD/lcsd000a16a_e.shp")
+CSD = gpd.read_file("/home/jovyan/data-vol-1/ODA/processing/3-Spatial_Group/CSD/fixed_CSD.shp")
 CSD=CSD[['CSDUID', 'CSDNAME','PRUID', 'geometry']]
 #convert geometry of addresses to statcan geometry
 
