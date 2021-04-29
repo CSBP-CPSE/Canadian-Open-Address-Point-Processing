@@ -65,24 +65,11 @@ DF['GROUP_ID'] = DF.groupby(['CSDUID', 'NUMBER', 'STR_NAME_PCS', 'STR_TYPE_PCS',
 
 DF=DF.rename(columns={'ID':'SOURCE_ID'})
 
-DF=DF[["LON",	"LAT",	"NUMBER",	"STREET",	"STR_NAME",	"STR_TYPE",	"STR_DIR",	"FULL_ADDR",
-       "UNIT",	"CITY",	"POSTCODE",	"STR_NAME_PCS",	"STR_DIR_PCS",	"STR_TYPE_PCS",	"CITY_PCS",	"CSDUID",
-       "CSDNAME",	"PRUID",	"Provider",	"ODA_ID",	"SOURCE_ID",	"GROUP_ID"]]#,  "temp"]]
+DF=DF[["LAT", "LON",	"SOURCE_ID", "ODA_ID",	"GROUP_ID", "NUMBER",	"STREET",	"STR_NAME",	"STR_TYPE",	"STR_DIR",	"UNIT", 
+       "CITY", "POSTCODE", "FULL_ADDR",	 "CITY_PCS", "STR_NAME_PCS", "STR_TYPE_PCS", "STR_DIR_PCS",
+       "CSDUID", "CSDNAME",	"PRUID",	"Provider"	]]#,  "temp"]]
 
 print(len(DF), 'records')
-DF.to_csv("/home/jovyan/data-vol-1/ODA/processing/temporary_files/ODA_v1.csv",index=False)
-
-#split into province level files
-
-
-
-#DF=pd.read_csv("/home/jovyan/data-vol-1/ODA/processing/temporary_files/ODA_v1.csv", low_memory=False)
-
-DF=pd.read_csv("/home/jovyan/data-vol-1/ODA/processing/temporary_files/ODA_v1.csv", low_memory=False, dtype=str)
-DF=DF[["LON",	"LAT",	"NUMBER",	"STREET",	"STR_NAME",	"STR_TYPE",	"STR_DIR",	"FULL_ADDR",
-       "UNIT",	"CITY",	"POSTCODE",	"STR_NAME_PCS",	"STR_DIR_PCS",	"STR_TYPE_PCS",	"CITY_PCS",	"CSDUID",
-       "CSDNAME",	"PRUID",	"Provider",	"ODA_ID",	"SOURCE_ID",	"GROUP_ID"]]
-DF.to_csv("/home/jovyan/data-vol-1/ODA/processing/temporary_files/ODA_v1.csv",index=False)
 
 
 
@@ -93,6 +80,60 @@ DF_null=DF.copy()
 DF_null=DF.loc[DF.PRUID.isnull()]
 DF_null.to_csv("/home/jovyan/data-vol-1/ODA/processing/temporary_files/ODA_v1_null.csv",index=False)
 DF=DF.dropna(subset=['PRUID'])
+
+
+name_map={'LAT': "latitude",
+         "LON": "longitude",
+         "NUMBER": "street_no",
+         "STREET": "street",
+         "STR_NAME": "str_name",
+         "STR_TYPE": "str_type",
+         "STR_DIR": "str_dir",
+         "FULL_ADDR": "full_addr",
+         "UNIT": "unit",
+         "CITY": "city",
+         "POSTCODE": "postal_code",
+         "STR_NAME_PCS": "str_name_pcs",
+         "STR_DIR_PCS": "str_dir_pcs",
+         "STR_TYPE_PCS": "str_type_pcs",
+         "CITY_PCS": "city_pcs",
+         "CSDUID": "csduid",
+         "CSDNAME": "csdname",
+         "PRUID": "pruid",
+         "Provider": "provider",
+         "ODA_ID": "id",
+         "SOURCE_ID": "source_id",
+         "GROUP_ID": "group_id"
+         }
+
+fr_map={
+         "street_no": "numero_rue",
+         "street": "rue",
+         "str_name": "nom_rue",
+         "str_type": "type_rue",
+         "str_dir": "dir_rue",
+         "full_addr": "adr_complete",
+         "unit": "unite",
+         "city": "ville",
+         "postal_code": "code_postal",
+         "str_name_pcs": "nom_rue_pcs",
+         "str_dir_pcs": "dir_rue_pcs",
+         "str_type_pcs": "type_rue_pcs",
+         "city_pcs": "ville_pcs",
+         "csduid": "sdridu",
+         "csdname": "sdrnom",
+         "pruid": "pridu",
+         "provider": "fournisseur",
+         "source_id": "id_source",
+         "group_id": "id_group"
+         }
+
+DF.to_csv("/home/jovyan/data-vol-1/ODA/processing/temporary_files/ODA_v1.csv",index=False)
+
+DF=DF.rename(columns=name_map)
+#split into province level files
+
+
 pr_dict={'NL': '10',
         'PE': '11',
         'NS': '12',
@@ -111,8 +152,10 @@ pr_dict={'NL': '10',
 #invert dictionary
 
 inv_dict = {v: k for k, v in pr_dict.items()}
-DF['PRUID']=DF['PRUID'].astype(str).str.replace('.0','')
-for pruid in list(DF.PRUID.unique()):
+DF['pruid']=DF['pruid'].astype(str).str.replace('.0','')
+for pruid in list(DF.pruid.unique()):
     temp=DF.copy()
-    temp=temp.loc[temp.PRUID==pruid]
-    temp.to_csv("/home/jovyan/data-vol-1/ODA/processing/temporary_files/ODA_{}_v1.csv".format(inv_dict[pruid]),index=False)
+    temp=temp.loc[temp['pruid']==pruid]
+    temp.to_csv("/home/jovyan/data-vol-1/ODA/processing/temporary_files/ODA_{}_v1.csv".format(inv_dict[pruid]),index=False, encoding="utf-8")
+    temp=temp.rename(columns=fr_map)
+    temp.to_csv("/home/jovyan/data-vol-1/ODA/processing/temporary_files/BDOA_{}_v1.csv".format(inv_dict[pruid]),index=False, encoding="utf-8")

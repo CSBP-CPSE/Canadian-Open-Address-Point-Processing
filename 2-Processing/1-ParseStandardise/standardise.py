@@ -41,6 +41,109 @@ def city_name(df,cols):
         df['CITY_PCS'] = city_name.upper().strip()
         return df
 
+def specific_fix(df, PR, s):
+    """
+    This function does string replacements and other operations for specific input files when issues are found.
+    So far, this function deals with French addresses in Ottawa that are formatted differently than expected,
+    replaces ";" with "l" in New Brunswick, and removes some weird things like "\r", "\s", etc 
+    removes "Saskatoon, SK" from addresses in Saskatoon,
+    Courtenay in BC contains asterixes in the NUMBER column,
+    parses "unite: ##" from street column in Quebec City
+    
+    """
+    #case 1, Ottawa
+    if PR=="ON" and s=="city_of_ottawa":
+        street=list(df['STREET'])
+        for i in range(len(street)):
+            split=street[i].split(',')
+            if len(split)==2:
+                new_street=split[1]+' '+split[0]
+                new_street=new_street.strip()
+                #replace a space after an apostrophe with just the apostrophe (so L' Eglise becomes L'Eglise)
+                new_street=new_street.replace("' ", "'")
+                street[i]=new_street
+        df["STREET"] = street
+                
+    #case 2, NB
+    if PR=="NB" and s=="province":
+        print('province of NB')
+        df["STREET"]=df["STREET"].str.replace(";","l",regex=False)
+        df["STR_NAME"]=df["STR_NAME"].str.replace(";","l",regex=False)
+
+        remove_list = [r"\s", r"\r", r"\n", r"\w"]
+        
+        for i in remove_list:
+            df["STREET"]=df["STREET"].str.replace(i,'',regex=False)
+            df["STR_NAME"]=df["STR_NAME"].str.replace(i,'',regex=False)
+    
+    #case 3, Saskatoon
+    if PR=="SK" and s=="saskatoon":
+        df["STREET"]=df["STREET"].str.replace(", SASKATOON","",regex=False)
+        df["STREET"]=df["STREET"].str.replace(", Saskatoon, SK, Canad","",regex=False)
+        df["STREET"]=df["STREET"].str.replace(", Saskatoon, SK Canad","",regex=False)
+
+    #case 4, Courtenay
+    if PR=="BC" and s=="city_of_courtenay":
+        df["NUMBER"]=df["NUMBER"].str.replace("*","",regex=False)
+        df["FULL_ADDR"]=df["FULL_ADDR"].str.replace("*","",regex=False)
+        
+        #some numbers have a hyphen which seem to designate UNIT - NUMBER
+        number=list(df['NUMBER'])
+        unit=list(df["UNIT"])
+        for i in range(len(number)):
+            split=number[i].split('-')
+            if len(split)==2:
+                new_num = split[1]
+                new_unit = split[0]
+                
+                new_num = new_num.strip()
+                new_unit = new_unit.strip()
+
+
+                number[i] = new_num
+                unit[i] = new_unit
+        df["NUMBER"] = number
+        df["UNIT"] = unit
+        
+    if PR=="QC" and s=="quebec_city":
+        street=list(df['STREET'])
+        unit=list(df["UNIT"])
+        for i in range(len(street)):
+            split=street[i].split('unite :')
+            if len(split)==2:
+                new_street=split[0]
+                new_unit = split[1]
+                new_street=new_street.strip()  
+                new_unit=new_unit[1]
+                street[i] = new_street
+                unit[i] = new_unit
+        df["STREET"] = street
+        df["UNIT"] = unit
+        
+    if PR=="SK" and s=="regina":
+        df.loc[df["STREET"]=="A NORTH RAILWAY STREET", "STR_DIR"] = "N"
+        df.loc[df["STREET"]=="A NORTH RAILWAY STREET", "UNIT"] = "A"
+        df.loc[df["STREET"]=="A NORTH RAILWAY STREET", "STREET"] = "NORTH RAILWAY STREET"
+        df.loc[df["STREET"]=="B NORTH RAILWAY STREET", "STR_DIR"] = "N"
+        df.loc[df["STREET"]=="B NORTH RAILWAY STREET", "UNIT"] = "B"
+        df.loc[df["STREET"]=="B NORTH RAILWAY STREET", "STREET"] = "NORTH RAILWAY STREET"
+
+    return df
+
+def remove_nulltext(df):
+    for c in ["NUMBER","STREET", "STR_DIR", "STR_TYPE", "STR_NAME", "FULL_ADDR", "UNIT"]:
+        #if the whole cell is "nan"
+        df[c]=df[c].str.replace(r"^nan$","",regex=True)
+        #if the cell contains "null" in brackets
+        df[c]=df[c].str.replace(r"[Null]","",regex=False)
+        df[c]=df[c].str.replace(r"[NULL]","",regex=False)
+        df[c]=df[c].str.replace(r"[null]","",regex=False)
+        df[c]=df[c].str.replace(r"<Null>","",regex=False)
+        df[c]=df[c].str.replace(r"<NULL>","",regex=False)
+    
+    return df
+
+    
 def parse_with_rask(df, cols):
     pr_dict={'NL': '10',
         'PE': '11',
@@ -149,9 +252,10 @@ if __name__ == "__main__":
                 cols.remove(col)
 
 
-            
     df_in=df_in.fillna('')
-    df_out = full_addr(df_in,cols)
+    df_out = remove_nulltext(df_in)
+    df_out = specific_fix(df_out, PR, s)
+    df_out = full_addr(df_out,cols)
     df_out = parse_with_rask(df_out, cols)
     df_out = city_name(df_out, cols)
     df_out.to_csv("/home/jovyan/data-vol-1/ODA/processing/temporary_files/"+name_out, index=False)
