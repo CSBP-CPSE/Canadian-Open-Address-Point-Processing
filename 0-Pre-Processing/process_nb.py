@@ -2,7 +2,7 @@
 """
 Created on Fri Apr 16 09:07:15 2021
 The NB shapefile download has encoding issues (accents appear as "?" and reading in with different
- encodings does not seem to help). This script just reads in the geojson (which can't be read
+ encodings does not seem to help). This script just reads in the CSV (which can't be read
   by the open addresses processing script) and outputs a new one in a standard encoding.
 
 @author: Joseph Kuchar (joseph.kuchar@canada.ca)
