@@ -19,11 +19,7 @@ import argparse
 
 def full_addr(df,cols):
     #fill empty entries in full address with a concatenation of unit, number, and street.
-#    if 'full_addr' not in cols:
-#        return df
-#    else:
-#        if 'unit' in cols:
-#            df['FULL_ADDR']=df['UNIT']+' '+df['NUMBER']+' '+df['STREET']
+
     df['TEMP']=df['UNIT']+' '+df['NUMBER']+' '+df['STREET']
     df['TEMP']=df['TEMP'].str.replace(' +',' ',regex=True)
     df['TEMP']=df['TEMP'].str.strip()
@@ -33,6 +29,7 @@ def full_addr(df,cols):
     return df
     
 def city_name(df,cols):
+    #if the city column is not filled in, attempt to fill in city_pcs from the file name
     if 'city' not in cols:
         df['CITY_PCS'] = df['CITY'].str.upper()
         return df
@@ -189,23 +186,13 @@ def parse_with_rask(df, cols):
             DIR.append(std_add.srch_dir)
             TYPE.append(std_add.srch_typ)
 
-    #if 'str_name' in cols:
     df['STR_NAME_PCS'] = NAME
     df['STR_NAME_PCS'] = df['STR_NAME_PCS'].str.upper()
-     #   processing.append('N')
-    #if 'str_dir' in cols:
     df['STR_DIR_PCS'] = DIR
     df['STR_DIR_PCS'] = df['STR_DIR_PCS'].str.upper()
-      #  processing.append('D')
-    #if 'str_type' in cols:
     df['STR_TYPE_PCS'] = TYPE
     df['STR_TYPE_PCS'] = df['STR_TYPE_PCS'].str.upper()
-       # processing.append('T')
-        #Add a column that indicates which of Name, Type, and Direction were inferred from the street column
-    #process_str=''
-    #for i in processing:
-    #    process_str+=i
-    #df['PROCESSING']=process_str
+
     return df
     
 
@@ -231,7 +218,7 @@ if __name__ == "__main__":
     json_in = args.json_in
     name_out = args.name_out
     #read in csv
-    df_in = pd.read_csv("/home/jovyan/data-vol-1/ODA/processing/temporary_files/"+name_in, dtype='str', low_memory=False)
+    df_in = pd.read_csv("/home/jovyan/Canadian-Open-Address-Point-Processing/2-Processing/temporary_files/"+name_in, dtype='str', low_memory=False)
     s=name_in.replace(".csv","")
 
     cols_master=['str_name','str_type','str_dir','full_addr', 'unit','city']
@@ -258,4 +245,4 @@ if __name__ == "__main__":
     df_out = full_addr(df_out,cols)
     df_out = parse_with_rask(df_out, cols)
     df_out = city_name(df_out, cols)
-    df_out.to_csv("/home/jovyan/data-vol-1/ODA/processing/temporary_files/"+name_out, index=False)
+    df_out.to_csv("/home/jovyan/Canadian-Open-Address-Point-Processing/2-Processing/temporary_files/"+name_out, index=False)

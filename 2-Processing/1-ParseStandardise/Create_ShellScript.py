@@ -1,8 +1,8 @@
 import pandas as pd
 import json
 
-df=pd.read_excel("/home/jovyan/data-vol-1/ODA/processing/valid_sources.xlsx")
-OA_PATH = "/home/jovyan/data-vol-1/ODA/openaddresses_mod/sources/ca"
+df=pd.read_excel("/home/jovyan/Canadian-Open-Address-Point-Processing/2-Processing/valid_sources.xlsx")
+OA_PATH = "/home/jovyan/Canadian-Open-Address-Point-Processing/1-Collect/sources/"
 
 Dates=list(df['Date'].str.strip("'"))
 names=list(df['JSON_NAME'])
@@ -19,10 +19,10 @@ for i in range(len(df)):
         source_json = json.load(fin)
         layer = source_json['layers']['addresses'][0]['name']
     
-    line1="mc cp standard/deil-lode/deil-lode/ODA/OA_Processing/Output/{}/{}/{}_{}/data/data/addresses/{}/out.csv /home/jovyan/data-vol-1/ODA/processing/temporary_files/{}.csv \n".format(date,pr,pr,s,layer,s)
+    line1="mc cp standard/deil-lode/deil-lode/ODA/OA_Processing/Output/{}/{}/{}_{}/data/data/addresses/{}/out.csv /home/jovyan/Canadian-Open-Address-Point-Processing/2-Processing/temporary_files/{}.csv \n".format(date,pr,pr,s,layer,s)
     line2="python standardise.py {} {}.csv {} {}_1.csv\n".format(pr,s,json_source_file,s)
-    line3="mc cp /home/jovyan/data-vol-1/ODA/processing/temporary_files/{}_1.csv standard/deil-lode/deil-lode/ODA/OA_PostProcessing/1_Parsing/{}/{}_out.csv\n".format(s,pr,s)
-    line4="rm /home/jovyan/data-vol-1/ODA/processing/temporary_files/*.csv \n"
+    line3="mc cp /home/jovyan/Canadian-Open-Address-Point-Processing/2-Processing/temporary_files/{}_1.csv standard/deil-lode/deil-lode/ODA/OA_PostProcessing/1_Parsing/{}/{}_out.csv\n".format(s,pr,s)
+    line4="rm /home/jovyan/Canadian-Open-Address-Point-Processing/2-Processing/temporary_files/*.csv \n"
 
     f.write(line1)
     f.write(line2)
